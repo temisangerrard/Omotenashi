@@ -3,10 +3,10 @@ import { useRoutes, Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import LoginForm from "./components/auth/LoginForm";
 import RegisterForm from "./components/auth/RegisterForm";
-import JobListings from "./components/jobs/JobListings";
+import { JobListings } from "@/components/jobs/JobListings";
 import JobDetail from "./components/jobs/JobDetail";
 import JobPostingForm from "./components/jobs/JobPostingForm";
-import StaffListings from "./components/staff/StaffListings";
+import { StaffListings } from "@/components/staff/StaffListings";
 import StaffProfile from "./components/staff/StaffProfile";
 import EmployerVerification from "./components/verification/EmployerVerification";
 import StaffVerification from "./components/verification/StaffVerification";
@@ -15,6 +15,7 @@ import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { Toaster } from "./components/ui/toaster";
 import routes from "tempo-routes";
+import AboutUs from "./components/about/AboutUs";
 
 function App() {
   return (
@@ -29,8 +30,9 @@ function App() {
             <Route path="/jobs/:id" element={<JobDetail />} />
             <Route path="/staff" element={<StaffListings />} />
             <Route path="/staff/:id" element={<StaffProfile />} />
+            <Route path="/about" element={<AboutUs />} />
 
-            {/* Protected Routes */}
+            {/* Protected Routes - now accessible without real auth */}
             <Route
               path="/post-job"
               element={
